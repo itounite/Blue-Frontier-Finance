@@ -7,6 +7,8 @@ import SEO from "@/components/SEO";
 import { heroSeaweed } from "@/content/site";
 import { insights } from "@/content/insights";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/content/translations";
 
 const parseDate = (d: string) => {
   const t = Date.parse(d);
@@ -16,6 +18,8 @@ const parseDate = (d: string) => {
 const Insights = () => {
   const [author, setAuthor] = useState<string>("All");
   const [category, setCategory] = useState<string>("All");
+  const { language, isJapanese, t } = useLanguage();
+  const tr = translations[language].insights;
 
   const sorted = useMemo(
     () => [...insights].sort((a, b) => parseDate(b.date) - parseDate(a.date)),
@@ -55,16 +59,32 @@ const Insights = () => {
   return (
     <Layout navVariant="light">
       <SEO
-        title="Insights — Impact VC field notes on industrial biotech, bioeconomy & advanced nutrition | Beyond Impact"
-        description="Long-form essays and research from Beyond Impact on impact investing, industrial biotech, applied biotech, the bioeconomy, advanced nutrition, human food, pet food, biodiversity, blue economy, and precision fermentation."
+        title={t(
+          "Insights — Field notes on marine biotech, bioeconomy & blue finance | Blue Frontier Finance",
+          "インサイト — 海洋バイオテック、バイオエコノミー、ブルーファイナンス知見 | Blue Frontier Finance"
+        )}
+        description={t(
+          "Long-form essays and research from Beyond Impact and UMITO Partners on impact investing, industrial biotech, the New Blue Economy, and ocean biodiversity.",
+          "Beyond ImpactおよびUMITO Partnersによる、インパクト投資、海洋バイオテクノロジー、ニュー・ブルーエコノミー、海洋生物多様性に関する論考・リサーチレポート。"
+        )}
         path="/insights"
-        keywords="industrial biotech, applied biotech, bioeconomy, industrial biotechnology, applied biotechnology, advanced nutrition, human food, pet food, impact investing insights, climate VC essays, bioeconomy research, alternative protein analysis, biodiversity fund, blue economy, precision fermentation, biomaterials, Article 9 SFDR"
+        keywords="industrial biotech, applied biotech, bioeconomy, advanced nutrition, impact investing insights, blue economy, precision fermentation, biomaterials, Article 9 SFDR, UMITO Partners, Beyond Impact"
         jsonLd={itemListJsonLd}
       />
       <PageHero
-        eyebrow="Insights"
-        title={<>Field notes from the <span className="script text-coral">transition</span>.</>}
-        sub="Long-form essays, opinion pieces and white papers from the Beyond Impact team — on capital, climate, biodiversity, biomanufacturing and the future of food."
+        eyebrow={tr.hero.eyebrow}
+        title={
+          isJapanese ? (
+            <>
+              海洋経済の転換点を読み解く、<span className="script text-coral">知見とシグナル</span>。
+            </>
+          ) : (
+            <>
+              Field notes from the <span className="script text-coral">transition</span>.
+            </>
+          )
+        }
+        sub={tr.hero.sub}
         image={heroSeaweed}
       />
       <section className="bg-white py-20 md:py-28 border-t border-navy/10">
@@ -83,7 +103,9 @@ const Insights = () => {
             <div className="relative p-8 md:p-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div className="max-w-3xl">
                 <div className="flex items-center gap-3">
-                  <span className="eyebrow text-heart font-semibold">Spotlight · White Paper</span>
+                  <span className="eyebrow text-heart font-semibold">
+                    {isJapanese ? "注目リサーチ · ホワイトペーパー" : "Spotlight · White Paper"}
+                  </span>
                   <span className="rounded-full bg-heart/15 border border-heart/30 px-3 py-0.5 text-[11px] font-semibold tracking-wide text-heart">
                     Featured
                   </span>
@@ -101,16 +123,24 @@ const Insights = () => {
                 </h2>
 
                 <p className="mt-4 text-base md:text-lg leading-relaxed text-navy/75">
-                  Our latest white paper,{" "}
-                  <a
-                    href="https://beyondimpact.hubspotpagebuilder.com/resilient-food-northern-europe"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-heart underline underline-offset-4 decoration-heart/50 hover:decoration-heart transition-colors font-medium"
-                  >
-                    Resilient Food Systems for Northern Europe: From Agricultural Dependence to Bio-Based Sovereignty
-                  </a>
-                  , explores why the transformation of food production should now be viewed not simply as a sustainability challenge, but as a question of resilience, sovereignty and long-term economic security.
+                  {isJapanese ? (
+                    <>
+                      Beyond Impactの最新ホワイトペーパー「北欧のための強靭な食料システム：農業依存からバイオベースの主権へ」では、食料生産の転換が単なる環境課題ではなく、サプライチェーンの強靭性、食料安全保障、長期的経済安全保障の核心問題であることを検証しています。
+                    </>
+                  ) : (
+                    <>
+                      Our latest white paper,{" "}
+                      <a
+                        href="https://beyondimpact.hubspotpagebuilder.com/resilient-food-northern-europe"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-heart underline underline-offset-4 decoration-heart/50 hover:decoration-heart transition-colors font-medium"
+                      >
+                        Resilient Food Systems for Northern Europe: From Agricultural Dependence to Bio-Based Sovereignty
+                      </a>
+                      , explores why the transformation of food production should now be viewed not simply as a sustainability challenge, but as a question of resilience, sovereignty and long-term economic security.
+                    </>
+                  )}
                 </p>
               </div>
 
@@ -121,7 +151,7 @@ const Insights = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-heart px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-heart-bright shadow-heart group"
                 >
-                  <span>Read White Paper</span>
+                  <span>{isJapanese ? "ホワイトペーパーを読む" : "Read White Paper"}</span>
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </div>
@@ -132,7 +162,9 @@ const Insights = () => {
           <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="flex flex-col gap-4 md:flex-row md:gap-8">
               <div>
-                <div className="mb-2 text-[11px] uppercase tracking-wider text-navy/70 font-semibold">Filter by author</div>
+                <div className="mb-2 text-[11px] uppercase tracking-wider text-navy/70 font-semibold">
+                  {isJapanese ? "執筆者で絞り込む" : "Filter by author"}
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {authors.map((a) => (
                     <button
@@ -140,17 +172,19 @@ const Insights = () => {
                       onClick={() => setAuthor(a)}
                       className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all ${
                         author === a
-                          ? "border-blue bg-blue text-white shadow-sm"
+                          ? "border-blue bg-blue text-white shadow-sm font-semibold"
                           : "border-navy/20 text-navy hover:border-blue hover:text-blue"
                       }`}
                     >
-                      {a}
+                      {a === "All" && isJapanese ? "すべて" : a}
                     </button>
                   ))}
                 </div>
               </div>
               <div>
-                <div className="mb-2 text-[11px] uppercase tracking-wider text-navy/70 font-semibold">Filter by tag</div>
+                <div className="mb-2 text-[11px] uppercase tracking-wider text-navy/70 font-semibold">
+                  {isJapanese ? "テーマ・タグで絞り込む" : "Filter by tag"}
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {categories.map((c) => (
                     <button
@@ -158,18 +192,18 @@ const Insights = () => {
                       onClick={() => setCategory(c)}
                       className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all ${
                         category === c
-                          ? "border-earth bg-earth text-white shadow-sm"
+                          ? "border-earth bg-earth text-white shadow-sm font-semibold"
                           : "border-navy/20 text-navy hover:border-earth hover:text-earth"
                       }`}
                     >
-                      {c}
+                      {c === "All" && isJapanese ? "すべて" : c}
                     </button>
                   ))}
                 </div>
               </div>
             </div>
             <div className="text-sm text-navy/70">
-              {filtered.length} {filtered.length === 1 ? "article" : "articles"} · newest first
+              {filtered.length} {isJapanese ? "件の論考" : filtered.length === 1 ? "article" : "articles"} · {isJapanese ? "新着順" : "newest first"}
             </div>
           </div>
 
@@ -204,7 +238,7 @@ const Insights = () => {
 
           {filtered.length === 0 && (
             <div className="mt-16 rounded-2xl border border-navy/10 bg-white p-10 text-center text-navy/70">
-              No insights match this combination. Try clearing a filter.
+              {isJapanese ? "該当するインサイトが見つかりませんでした。絞り込みを解除してください。" : "No insights match this combination. Try clearing a filter."}
             </div>
           )}
         </div>

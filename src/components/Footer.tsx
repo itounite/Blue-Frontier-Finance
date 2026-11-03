@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { site } from "@/content/site";
 import BrandLockup from "@/components/BrandLockup";
 import { ArrowUpRight, Twitter, Facebook, Linkedin } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/content/translations";
 
 const socialIcon = (label: string) => {
   if (label === "Twitter") return Twitter;
@@ -10,6 +12,16 @@ const socialIcon = (label: string) => {
 };
 
 const Footer = () => {
+  const { language, isJapanese, t } = useLanguage();
+  const tr = translations[language].site;
+
+  const navLinks = [
+    { label: t("About", "概要"), href: "/about" },
+    { label: t("Our Work", "事業・協業"), href: "/our-work" },
+    { label: t("Portfolio", "ポートフォリオ"), href: "/portfolio" },
+    { label: t("Insights", "インサイト"), href: "/insights" },
+  ];
+
   return (
     <footer className="relative overflow-hidden bg-gradient-to-b from-[#1A1F9E] via-[#12166E] to-[#0A0D46] text-white">
       {/* Subtle organic light reflections matching the partnership section */}
@@ -31,7 +43,7 @@ const Footer = () => {
             </Link>
 
             <p className="mt-6 max-w-md text-sm sm:text-base text-white/85 leading-relaxed">
-              {site.tagline}
+              {tr.tagline}
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
@@ -55,9 +67,9 @@ const Footer = () => {
 
           {/* Navigation Sitemap */}
           <div className="md:col-span-3 md:col-start-8">
-            <div className="eyebrow text-white/70">Navigation</div>
+            <div className="eyebrow text-white/70">{t("Navigation", "ナビゲーション")}</div>
             <ul className="mt-6 space-y-3">
-              {site.navLinks.map((l) => (
+              {navLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     to={l.href}
@@ -72,7 +84,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="md:col-span-2">
-            <div className="eyebrow text-white/70">Connect</div>
+            <div className="eyebrow text-white/70">{t("Connect", "関連リンク")}</div>
             <ul className="mt-6 flex flex-wrap gap-3">
               {site.social.map((s) => {
                 const Icon = socialIcon(s.label);
@@ -97,9 +109,9 @@ const Footer = () => {
         {/* Call to founders / partners */}
         <div className="mt-16 grid gap-6 border-t border-white/15 pt-8 md:grid-cols-12 md:items-center">
           <div className="md:col-span-8">
-            <div className="eyebrow text-white/80 font-bold">For Ocean Founders & Partners</div>
+            <div className="eyebrow text-white/80 font-bold">{tr.forFounders}</div>
             <p className="mt-2 text-sm sm:text-base text-white/85 leading-relaxed">
-              {site.funding.intro}
+              {tr.forFoundersSub}
             </p>
           </div>
           <div className="md:col-span-4 md:text-right">
@@ -109,7 +121,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-heart px-6 py-3 text-sm font-semibold text-white shadow-heart transition-all hover:bg-heart-bright"
             >
-              {site.funding.display}
+              {tr.submitVentureBtn}
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
@@ -118,9 +130,9 @@ const Footer = () => {
         {/* Copyright & Disclaimer */}
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-8 text-xs text-white/70 md:flex-row md:items-center">
           <div>
-            © {new Date().getFullYear()} Blue Frontier Finance — A strategic collaboration between Beyond Impact & UMITO Partners. All rights reserved.
+            © {new Date().getFullYear()} Blue Frontier Finance — {isJapanese ? "Beyond Impact & UMITO Partners による戦略的協業イニシアチブ。" : "A strategic collaboration between Beyond Impact & UMITO Partners."} {tr.rightsReserved}
           </div>
-          <div>Tokyo · London · Geneva · Stockholm</div>
+          <div>{tr.tokyoLondon}</div>
         </div>
       </div>
     </footer>

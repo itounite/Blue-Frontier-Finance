@@ -3,16 +3,27 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight, ShieldCheck, Award, TrendingUp, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
-import { home, site } from "@/content/site";
+import { home } from "@/content/site";
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/content/translations";
 
 const legIcons = [TrendingUp, Award, ShieldCheck];
 
 const Index = () => {
+  const { language, isJapanese, t } = useLanguage();
+  const tr = translations[language].home;
+
   return (
     <Layout navVariant="light">
       <SEO
-        title="Blue Frontier Finance — Beyond Impact & UMITO Partners | New Blue Economy"
-        description="Blue Frontier Finance is a collaborative initiative between Beyond Impact and UMITO Partners accelerating the New Blue Economy across Europe, Japan and APAC through co-investments, ecosystem building, and specialized investment vehicle partnerships."
+        title={t(
+          "Blue Frontier Finance — Beyond Impact & UMITO Partners | New Blue Economy",
+          "Blue Frontier Finance — Beyond Impact & UMITO Partners | ニュー・ブルーエコノミー"
+        )}
+        description={t(
+          "Blue Frontier Finance is a collaborative initiative between Beyond Impact and UMITO Partners accelerating the New Blue Economy across Europe, Japan and APAC through co-investments, ecosystem building, and specialized investment vehicle partnerships.",
+          "Blue Frontier Financeは、Beyond ImpactとUMITO Partnersによるインパクト・ベンチャー協業イニシアチブです。共同投資、エコシステム構築、特化型投資ビークル連携を通じて日本・欧州・APACの海洋経済移行を加速します。"
+        )}
         path="/"
         keywords="Blue Frontier Finance, Beyond Impact, UMITO Partners, blue economy, marine biotechnology, ocean climate tech, blue foods, cellular aquaculture, algae biomaterials, diatom silica, Japan Europe impact investing, Shunji Murakami, Claire Smith, Sagar Tandon"
       />
@@ -37,20 +48,20 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="eyebrow text-earth font-semibold"
           >
-            {home.hero.eyebrow}
+            {tr.hero.eyebrow}
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="display mt-8 max-w-[14ch] text-[clamp(2.75rem,8.5vw,8.5rem)] leading-[0.95] text-navy"
+            className="display mt-8 max-w-[15ch] text-[clamp(2.75rem,8vw,8rem)] leading-[0.98] text-navy"
           >
-            {home.hero.headlineLead}{" "}
+            {tr.hero.headlineLead}{" "}
             <span className="script font-normal text-heart">
-              {home.hero.headlineScript}
+              {tr.hero.headlineScript}
             </span>{" "}
-            {home.hero.headlineRest}
+            {tr.hero.headlineRest}
           </motion.h1>
 
           <motion.div
@@ -60,21 +71,21 @@ const Index = () => {
             className="mt-10 flex flex-col gap-10 md:flex-row md:items-end md:justify-between"
           >
             <p className="max-w-xl text-lg leading-relaxed text-navy/80">
-              {home.hero.sub}
+              {tr.hero.sub}
             </p>
             <div className="flex flex-wrap gap-3">
               <a
                 href="#three-legs"
                 className="inline-flex items-center gap-2 rounded-full bg-blue px-7 py-4 text-sm font-medium text-white shadow-blue transition-all hover:bg-blue/90 hover:shadow-elevated"
               >
-                Explore the Three Legs
+                {tr.hero.primaryCta}
                 <ArrowRight className="h-4 w-4" />
               </a>
               <Link
                 to="/portfolio"
                 className="inline-flex items-center gap-2 rounded-full border border-navy/20 px-7 py-4 text-sm font-medium text-navy transition-colors hover:border-heart hover:text-heart"
               >
-                Our Blue Portfolio
+                {tr.hero.secondaryCta}
               </Link>
             </div>
           </motion.div>
@@ -85,12 +96,12 @@ const Index = () => {
           <div className="flex animate-marquee whitespace-nowrap gap-16 text-navy/80 font-display text-lg">
             {Array.from({ length: 2 }).map((_, i) => (
               <div key={i} className="flex shrink-0 gap-16 items-center">
-                <span>Marine Biotech</span><span className="text-heart">✦</span>
-                <span>Blue Economy</span><span className="text-earth">✦</span>
-                <span>Algae &amp; Seaweed</span><span className="text-blue">✦</span>
-                <span>Cellular Aquaculture</span><span className="text-heart">✦</span>
-                <span>Japan · Europe · APAC Bridge</span><span className="text-earth">✦</span>
-                <span>Blue Awards</span><span className="text-blue">✦</span>
+                <span>{tr.marquee[0]}</span><span className="text-heart">✦</span>
+                <span>{tr.marquee[1]}</span><span className="text-earth">✦</span>
+                <span>{tr.marquee[2]}</span><span className="text-blue">✦</span>
+                <span>{tr.marquee[3]}</span><span className="text-heart">✦</span>
+                <span>{tr.marquee[4]}</span><span className="text-earth">✦</span>
+                <span>{tr.marquee[5]}</span><span className="text-blue">✦</span>
               </div>
             ))}
           </div>
@@ -101,17 +112,25 @@ const Index = () => {
       <section id="three-legs" className="bg-white py-24 md:py-32 border-t border-navy/10 scroll-mt-20">
         <div className="container-x">
           <div className="max-w-3xl">
-            <div className="eyebrow text-blue font-bold">Platform Architecture</div>
+            <div className="eyebrow text-blue font-bold">{tr.threeLegsEyebrow}</div>
             <h2 className="display mt-4 text-4xl text-navy md:text-5xl">
-              The Three Legs of <span className="script text-heart">Blue Frontier Finance</span>
+              {isJapanese ? (
+                <>
+                  Blue Frontier Finance を推進する<span className="script text-heart">3つの柱</span>
+                </>
+              ) : (
+                <>
+                  The Three Legs of <span className="script text-heart">Blue Frontier Finance</span>
+                </>
+              )}
             </h2>
             <p className="mt-4 text-base sm:text-lg text-navy/75 leading-relaxed">
-              A comprehensive bilateral platform engineered by Beyond Impact and UMITO Partners to catalyze capital, knowledge, and high-impact ocean ventures.
+              {tr.threeLegsSub}
             </p>
           </div>
 
           <div className="mt-16 grid gap-8 lg:grid-cols-3">
-            {home.threeLegs.map((leg, idx) => {
+            {tr.threeLegs.map((leg, idx) => {
               const Icon = legIcons[idx];
               return (
                 <motion.div
@@ -143,14 +162,14 @@ const Index = () => {
                     </ul>
                   </div>
 
-                  {leg.cta && (
+                  {leg.reachOutText && (
                     <div className="mt-8 border-t border-navy/10 pt-6">
                       <a
-                        href={leg.cta.href}
+                        href="mailto:info@umitopartners.com?cc=invest@beyondimpact.vc&subject=Blue%20Frontier%20Finance%20Investment%20Vehicle"
                         className="inline-flex items-center gap-2 text-xs font-bold text-blue hover:text-heart transition-colors"
                       >
-                        <Mail className="h-4 w-4" />
-                        <span>Partner with us: info@umitopartners.com / invest@beyondimpact.vc</span>
+                        <Mail className="h-4 w-4 shrink-0" />
+                        <span>{leg.reachOutText}</span>
                       </a>
                     </div>
                   )}
@@ -161,13 +180,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* MISSION CALLOUT / STRUCTURAL INFLECTION */}
-      <section className="bg-white py-24 md:py-32 border-t border-navy/10">
+      {/* MISSION / SUPPLY CHAIN INFLECTION */}
+      <section className="bg-clay py-24 text-navy md:py-32">
         <div className="container-x">
           <div className="max-w-3xl">
-            <div className="eyebrow text-earth font-bold">{home.missionCallout.eyebrow}</div>
-            <h2 className="display mt-6 text-4xl text-navy md:text-6xl">
-              {home.missionCallout.title}
+            <div className="eyebrow text-heart font-bold">{tr.mission.eyebrow}</div>
+            <h2 className="display mt-4 text-4xl text-navy md:text-5xl">
+              {tr.mission.title}
             </h2>
           </div>
 
@@ -184,21 +203,21 @@ const Index = () => {
             </div>
             <div className="md:col-span-5 flex flex-col justify-between">
               <p className="text-lg leading-relaxed text-navy/75">
-                {home.missionCallout.body}
+                {tr.mission.body}
               </p>
               <div className="mt-8 pt-6 border-t border-navy/10">
                 <Link
                   to="/about"
                   className="inline-flex items-center gap-2 border-b-2 border-blue pb-1 text-sm font-semibold text-blue hover:text-heart hover:border-heart transition-colors"
                 >
-                  Explore our collaborative thesis <ArrowRight className="h-4 w-4" />
+                  {tr.mission.cta} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
           </div>
 
           <div className="mt-16 grid gap-px bg-navy/10 sm:grid-cols-2 lg:grid-cols-4 border border-navy/10 rounded-2xl overflow-hidden shadow-soft">
-            {home.missionCallout.stats.map((s, idx) => (
+            {tr.mission.stats.map((s, idx) => (
               <div key={s.label} className="bg-white p-7">
                 <div className={`display text-3xl md:text-4xl ${idx === 0 ? "text-heart" : idx === 1 ? "text-blue" : idx === 2 ? "text-earth" : "text-navy"}`}>{s.value}</div>
                 <div className="mt-3 text-xs uppercase tracking-wider text-navy/70 leading-relaxed font-medium">{s.label}</div>
@@ -211,12 +230,12 @@ const Index = () => {
       {/* TRACK RECORD */}
       <section className="bg-white py-24 text-navy border-t border-navy/10">
         <div className="container-x">
-          <div className="eyebrow text-earth font-bold">Collaborative Track Record</div>
+          <div className="eyebrow text-earth font-bold">{tr.trackRecord.eyebrow}</div>
           <h2 className="display mt-4 max-w-2xl text-4xl text-navy md:text-5xl">
-            Discipline compounding across <span className="script text-heart">oceans</span>.
+            {tr.trackRecord.titleLead} <span className="script text-heart">{tr.trackRecord.titleScript}</span>
           </h2>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {home.stats.map((s, i) => (
+            {tr.trackRecord.stats.map((s, i) => (
               <motion.div
                 key={s.label}
                 initial={{ opacity: 0, y: 20 }}
@@ -238,37 +257,38 @@ const Index = () => {
         <div className="container-x">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-2xl">
-              <div className="eyebrow text-earth font-bold">Blue Frontier Thesis</div>
+              <div className="eyebrow text-earth font-bold">{tr.sectors.eyebrow}</div>
               <h2 className="display mt-4 text-4xl text-navy md:text-5xl">
-                Three core domains. One <span className="script text-heart">ocean</span>.
+                {tr.sectors.titleLead} <span className="script text-heart">{tr.sectors.titleScript}</span>
               </h2>
             </div>
             <Link
               to="/portfolio"
               className="inline-flex items-center gap-2 text-sm font-semibold text-blue hover:text-heart transition-colors"
             >
-              See our portfolio <ArrowUpRight className="h-4 w-4" />
+              {tr.sectors.portfolioLink} <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
           <div className="mt-16 grid gap-8 md:grid-cols-3">
-            {home.sectors.map((s) => (
+            {tr.sectors.items.map((s, idx) => (
               <div key={s.name} className="group relative overflow-hidden rounded-2xl border border-navy/15 bg-white shadow-soft hover:shadow-elevated transition-all flex flex-col justify-between">
                 <div>
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
-                      src={s.image}
+                      src={home.sectors[idx]?.image}
                       alt={s.name}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
                   <div className="p-7">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-wider text-earth">{s.share} Focus</span>
-                      <span className="display text-sm font-bold text-heart">{s.market}</span>
+                    <div className="inline-flex items-center gap-2 rounded-xl border border-heart/25 bg-heart/10 px-3.5 py-1.5 shadow-xs">
+                      <span className="display text-xs sm:text-sm font-bold text-heart">
+                        {s.market}
+                      </span>
                     </div>
-                    <h3 className="display mt-3 text-2xl text-navy">{s.name}</h3>
+                    <h3 className="display mt-4 text-2xl text-navy">{s.name}</h3>
                     <p className="mt-3 text-sm text-navy/70 leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
@@ -286,26 +306,26 @@ const Index = () => {
         </div>
         <div className="container-x relative">
           <div className="max-w-4xl">
-            <div className="eyebrow text-heart font-bold">Connect With Us</div>
+            <div className="eyebrow text-heart font-bold">{tr.partnership.eyebrow}</div>
             <h2 className="display mt-6 text-4xl leading-tight md:text-6xl lg:text-7xl">
-              {home.partnership.title}
+              {tr.partnership.title}
             </h2>
             <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/85 leading-relaxed">
-              {home.partnership.body}
+              {tr.partnership.body}
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href={home.partnership.primaryCta.href}
                 className="inline-flex items-center gap-2.5 rounded-full bg-heart px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-heart transition-all hover:bg-heart-bright hover:shadow-elevated"
               >
-                {home.partnership.primaryCta.label}
+                {tr.partnership.emailBeyond}
                 <ArrowUpRight className="h-4 w-4" />
               </a>
               <a
                 href={home.partnership.secondaryCta.href}
                 className="inline-flex items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-white"
               >
-                {home.partnership.secondaryCta.label}
+                {tr.partnership.emailUmito}
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>

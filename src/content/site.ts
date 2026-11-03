@@ -36,7 +36,7 @@ export const site = {
   founded: 2017,
   navLinks: [
     { label: "About", href: "/about" },
-    { label: "Advisory", href: "/advisory" },
+    { label: "Our Work", href: "/our-work" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Insights", href: "/insights" },
   ],
@@ -130,24 +130,21 @@ export const home = {
   sectors: [
     {
       name: "Blue Bio & Foods",
-      share: "60%",
       desc: "Sustainable marine proteins, microalgae cultivation, fermentation-based seafood alternatives, and upcycled ocean ingredients.",
       image: sectorNutrition,
-      market: "$25B+ (2034)",
+      market: "Potential Market Size >25B (2034)",
     },
     {
       name: "Marine Bio-Materials",
-      share: "25%",
       desc: "Seaweed-based packaging, diatom silica (Algica®), marine biopolymers, and high-margin cosmetics & pharma ingredients.",
       image: sectorMaterials,
-      market: "$5.2B (2030)",
+      market: "Potential Market Size >5B (2030)",
     },
     {
       name: "Ocean Climate-Tech",
-      share: "15%",
       desc: "Marine carbon sequestration, ocean monitoring sensors, pollution remediation, and maritime decarbonization.",
       image: sectorPharma,
-      market: "$29.3B (2030)",
+      market: "Potential Market Size >29B (2030)",
     },
   ],
   partnership: {
@@ -278,14 +275,18 @@ export const about = {
   },
   credentials: [
     {
-      org: "Beyond Impact",
+      org: "Beyond Impact VC",
       title: "Pioneer Impact VC & Article 9 Track Record",
       details: "Founded in 2017 with $191M+ AUM across venture vehicles, co-investments, and public indexes. Winner of IA 50 Emerging Impact Manager (2026) and Ethical Finance Awards Best Impact-Focused Firm (2024).",
+      url: "https://beyondimpact.vc",
+      displayUrl: "beyondimpact.vc",
     },
     {
       org: "UMITO Partners",
       title: "Japan's Leading Voice in the New Blue Economy",
       details: "B Corp Certified and named 'Regenerative Company 2025' by WIRED Japan. Deployed $10M+ across 10+ sustainable fisheries initiatives and achieved 5 prestigious MSC and ASC certifications across Japan.",
+      url: "https://umitopartners.com",
+      displayUrl: "umitopartners.com",
     },
   ],
 };

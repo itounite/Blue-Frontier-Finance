@@ -3,9 +3,10 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { LanguageProvider } from "@/lib/LanguageContext";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
-import Advisory from "./pages/Advisory.tsx";
+import OurWork from "./pages/OurWork.tsx";
 import Portfolio from "./pages/Portfolio.tsx";
 import BlueEconomy from "./pages/BlueEconomy.tsx";
 import Insights from "./pages/Insights.tsx";
@@ -17,13 +18,15 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+      <LanguageProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
-          <Route path="/advisory" element={<Advisory />} />
+          <Route path="/our-work" element={<OurWork />} />
+          <Route path="/advisory" element={<Navigate to="/our-work" replace />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/insights/:slug" element={<InsightDetail />} />
@@ -35,8 +38,9 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+    </LanguageProvider>
+  </TooltipProvider>
+</QueryClientProvider>
 );
 
 export default App;
