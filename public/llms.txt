@@ -1,0 +1,39 @@
+# Beyond Impact
+
+> Beyond Impact Partners is an Article 9 (SFDR) impact venture capital firm financing superior, scalable biosolutions across industrial biotech, applied biotech, the bioeconomy, advanced nutrition, human food, pet food, and climate innovation.
+
+Beyond Impact manages Article 9 SFDR impact-focused funds (including Fund I and Fund II under a Luxembourg SICAV-RAIF umbrella) and provides advisory services to founders, family offices, and institutional investors. The firm is a pioneer bioeconomy investor founded in 2017 by Claire Smith, alongside partners Sagar Tandon, Tarja Zudemberg, Anthony Stam, Hanna Y. Gabay, and Jody Rasch. Beyond Impact has been recognized by ImpactAssets IA 50 (2026), Ethical Finance Awards, and Environmental Finance Sustainable Investment Awards.
+
+## Core Investment Domains & Biotech Focus
+
+- **Industrial Biotech**: High-efficiency microbial fermentation, enzyme engineering, biological production platforms, and bio-manufacturing infrastructure delivering structural margin advantages.
+- **Applied Biotech**: Translating deep scientific discovery into commercial applications across food, agriculture, blue ocean restoration, and green chemistry.
+- **The Bioeconomy**: Circular, bio-based economic systems that replace petrochemical and extractive animal-derived supply chains with regenerative biological alternatives.
+- **Advanced Nutrition**: High-value functional ingredients, precision fermentation, recombinant proteins, and cellular cultivation for human food and pet food.
+- **Alternative Protein & Historical Alt-Protein Taxonomy**: Pioneer investor in protein diversification, cultivated meat (Mosa Meat, BlueNalu, SuperMeat, Gourmey), and novel fermentation (EVERY Company, Geltor) now expanding upstream into B2B functional ingredients.
+- **Next-Gen Biomaterials**: Circular, non-toxic, biodegradable alternatives to plastics, leather, and synthetic fibers (e.g. PLHYDE, Human Material Loop).
+- **Blue Economy**: Regenerative ocean solutions, sustainable marine aquaculture, and microalgae bioproduction (e.g. Swedish Algae Factory producing Algica, Blue Frontier Fund with UMITO Partners).
+
+## Pages
+
+- [Home](/): Overview of Beyond Impact's mission, funds, and portfolio.
+- [About](/about): Firm background, team, partners, and recognitions.
+- [Funds](/funds): Article 9 SFDR impact funds and investment strategy across industrial biotech and bioeconomy.
+- [Advisory](/advisory): Strategic impact vehicle design and advisory services for founders and allocators.
+- [Portfolio](/portfolio): Portfolio companies across industrial biotech, food, biomaterials, and blue economy sectors.
+- [Blue Economy](/blue-economy): Investment thesis for ocean restoration and sustainable aquaculture.
+- [Insights](/insights): Articles and research on impact investing, industrial biotech, and the bioeconomy.
+
+## Key Insights & Publications
+
+- [Dialogues With Sagar & Shunji – Part 1](/insights/dialogues-sagar-shunji-part-1): Restoring the ocean while growing industry.
+- [Dialogues With Sagar & Shunji – Part 2](/insights/dialogues-sagar-shunji-part-2): Continued dialogue on regenerative ocean industry.
+- [The Great China Food Wall](/insights/great-china-food-wall): China's strategic bioeconomy playbook and state-backed biomanufacturing.
+- [The Great Reckoning](/insights/the-great-reckoning): Reflections on the impact investing landscape and sovereign food resilience.
+- [Untapped Climate Opportunity](/insights/untapped-climate-opportunity): Advanced nutrition and food systems as high-leverage climate financing solutions.
+- [Role of AI in Alternative Proteins](/insights/role-of-ai-in-alternative-proteins): Role of AI in advanced nutrition, recombinant proteins, and bioprocess optimization.
+- [Animal-Free for Biodiversity](/insights/animal-free-for-biodiversity): Biodiversity benefits of animal-free food and industrial systems.
+- [Biomaterials: Untapped Climate Opportunity](/insights/biomaterials-untapped-climate-opportunity): Biomaterials as a climate lever.
+- [The Nordic Edge](/insights/the-nordic-edge): Why the Nordics lead on industrial biotech, applied biotech, and green chemistry.
+- [Ingredients for a Sustainable Future](/insights/ingredients-for-a-sustainable-future): Next-generation sustainable ingredients and precision fermentation.
+- [Beyond Energy: Consumption Transition](/insights/beyond-energy-consumption-transition): Decarbonizing industrial consumption through biology.

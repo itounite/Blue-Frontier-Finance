@@ -1,0 +1,6 @@
+{
+  "name": "Beyond Impact",
+  "description": "Beyond Impact is an Article 9 SFDR impact venture capital fund investing in industrial biotech, applied biotech, the bioeconomy, advanced nutrition, human food, pet food, biodiversity, climate, biomaterials, precision fermentation and cellular agriculture — pioneer impact VC since 2017.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

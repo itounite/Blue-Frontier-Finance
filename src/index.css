@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sacramento&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Beyond Impact — Brand Design System
+   Synthesized with UMITO Partners Brand Guidelines:
+   - Theme Background: Pure White (#FFFFFF)
+   - High Contrast Colors: UMITO Cobalt Blue (#3328F0), Deep Sea Navy (#003F61), Nature Green (#00CD69), Accent (#E6005A)
+   - Typography: Manrope
+*/
+
+@layer base {
+  :root {
+    /* Brand palette — Blue (#3328F0), Earth Green (#5DB77A), Heart (#F08372) */
+    --navy: 205 100% 19%;          /* Sea Navy #003F61 */
+    --navy-deep: 207 100% 11%;     /* Deep Marine #002237 */
+    --blue: 243 85% 55%;           /* Blue #3328F0 */
+    --earth: 139 39% 54%;          /* Earth Green RGB(93,183,122) #5DB77A */
+    --earth-soft: 139 45% 93%;     /* Soft Earth #EAF6EE */
+    --heart: 8 81% 69%;            /* Heart RGB(240,131,114) #F08372 */
+    --heart-bright: 8 85% 62%;     /* Bright Heart #EF6D59 */
+    --heart-soft: 8 85% 95%;       /* Soft Heart #FDF1EF */
+    --green: 139 39% 54%;          /* Earth Green #5DB77A */
+    --green-soft: 139 45% 93%;
+    --coral: 8 81% 69%;            /* Heart #F08372 for brightness */
+    --clay: 0 0% 100%;             /* Theme background white #FFFFFF */
+    --clay-warm: 36 20% 97%;       /* Soft sand contrast #F8F6F2 */
+
+    /* Semantic mapping: White theme background with high contrast */
+    --background: 0 0% 100%;       /* Pure White */
+    --foreground: 0 0% 20%;        /* Deep Charcoal #323232 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    --primary: 243 85% 55%;        /* Blue #3328F0 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 139 39% 54%;      /* Earth Green #5DB77A */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 8 81% 69%;           /* Heart #F08372 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 243 85% 55%;
+
+    --radius: 0.5rem;
+
+    /* Gradients & shadows */
+    --gradient-navy: linear-gradient(135deg, #003F61 0%, #002237 100%);
+    --gradient-impact: linear-gradient(135deg, #003F61 0%, #3328F0 100%);
+    --gradient-coral: linear-gradient(135deg, #F08372 0%, #EF6D59 100%);
+    --shadow-soft: 0 4px 20px -4px rgba(0, 63, 97, 0.08);
+    --shadow-elevated: 0 20px 48px -12px rgba(0, 63, 97, 0.16);
+    --shadow-coral: 0 12px 30px -8px rgba(240, 131, 114, 0.45);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 243 85% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 96%;
+    --sidebar-accent-foreground: 0 0% 20%;
+    --sidebar-border: 214 20% 90%;
+    --sidebar-ring: 243 85% 55%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  ::selection { background: #3328F0; color: #FFFFFF; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1320px] px-6 md:px-10; }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em];
+    font-family: 'Manrope', sans-serif;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-8 bg-current opacity-60;
+  }
+  .display {
+    font-family: 'Manrope', sans-serif;
+    @apply font-bold tracking-[-0.03em] leading-[1.05];
+  }
+  .script {
+    font-family: 'Sacramento', cursive;
+    @apply font-normal;
+  }
+  .body-serif { font-family: 'Manrope', sans-serif; }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[var(--shadow-elevated)];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-current/20 px-6 py-3 text-sm font-medium transition-colors hover:bg-current/5;
+  }
+
+  .grain::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(hsl(var(--foreground) / 0.04) 1px, transparent 1px);
+    background-size: 4px 4px;
+    pointer-events: none;
+  }
+}
